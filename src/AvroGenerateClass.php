@@ -1,10 +1,10 @@
 <?php
-namespace LukeCurtis\AvroGenerate;
 
+namespace LukeCurtis\AvroGenerate;
 
 class AvroGenerateClass
 {
-    public function __construct() {
+    public function __construct()
+    {
     }
-
 }
