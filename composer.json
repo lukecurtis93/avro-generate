@@ -48,6 +48,9 @@
             "phpstan/extension-installer": true
         }
     },
+    "bin": [
+        "bin/avro"
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -1,28 +1,30 @@
 <?php
 
-namespace LukeCurtis\AvroGenerate\Generator;
+namespace LukeCurtis\AvroGenerate\Commands;
 
 use League\Flysystem\FilesystemAdapter;
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
+use LukeCurtis\AvroGenerate\Generator\DefaultAvroGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(name: 'generate')]
 class GenerateAvroFiles extends Command
 {
+    protected static $defaultDescription = 'Generate Avro files';
     public function __construct(private FilesystemAdapter $filesystem = new InMemoryFilesystemAdapter('./'))
     {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        // ... put here the code to create the user
+        $generator = new DefaultAvroGenerator($this->filesystem);
 
-        // this method must return an integer number with the "exit status code"
-        // of the command. You can also use these constants to make code more readable
+        $generator->generate();
 
-        // return this if there was no problem running the command
-        // (it's equivalent to returning int(0))
         return Command::SUCCESS;
     }
 }

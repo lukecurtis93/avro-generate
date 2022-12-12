@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+require file_exists(__DIR__ . '/../vendor/autoload.php')
+        ? __DIR__ . '/../vendor/autoload.php'
+        : __DIR__ . '/../../../../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new LukeCurtis\AvroGenerate\Commands\GenerateAvroFiles());
+
+$application->run();
