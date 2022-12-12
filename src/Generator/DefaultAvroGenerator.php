@@ -1,6 +1,7 @@
 <?php
 
 namespace LukeCurtis\AvroGenerate\Generator;
+
 use FlixTech\AvroSerializer\Objects\DefaultSchemaGeneratorFactory;
 use League\Flysystem\Config;
 use League\Flysystem\FilesystemAdapter;
@@ -8,7 +9,8 @@ use LukeCurtis\AvroGenerate\Contracts\AvroableContract;
 
 class DefaultAvroGenerator
 {
-    public function __construct(private FilesystemAdapter $filesystem) {
+    public function __construct(private FilesystemAdapter $filesystem)
+    {
     }
 
     public function generate(): bool
@@ -20,6 +22,7 @@ class DefaultAvroGenerator
                 $this->filesystem->write($className::getFileName(), json_encode($schema->serialize(), true), new Config);
             }
         }
+
         return true;
     }
 
@@ -28,7 +31,8 @@ class DefaultAvroGenerator
         return $this->filesystem;
     }
 
-    public function setFilesystem(FilesystemAdapter $filesystem): self{
+    public function setFilesystem(FilesystemAdapter $filesystem): self
+    {
         $this->filesystem = $filesystem;
 
         return $this;

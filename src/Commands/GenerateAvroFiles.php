@@ -9,7 +9,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateAvroFiles extends Command
 {
-    public function __construct(private FilesystemAdapter $filesystem = new InMemoryFilesystemAdapter('./')) {
+    public function __construct(private FilesystemAdapter $filesystem = new InMemoryFilesystemAdapter('./'))
+    {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

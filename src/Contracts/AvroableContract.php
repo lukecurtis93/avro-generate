@@ -2,7 +2,8 @@
 
 namespace LukeCurtis\AvroGenerate\Contracts;
 
-interface AvroableContract {
+interface AvroableContract
+{
     public function getTopicKey(): string;
 
     public function getTopic(): string;

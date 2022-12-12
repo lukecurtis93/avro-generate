@@ -1,4 +1,5 @@
 <?php
+
 namespace LukeCurtis\AvroGenerate\Tests\TestClasses;
 
 use FlixTech\AvroSerializer\Objects\Schema\Generation\Annotations as SerDe;
@@ -12,18 +13,21 @@ class User implements AvroableContract
 {
     /**
      * @SerDe\AvroType("string")
+     *
      * @var string
      */
     private $firstName;
 
     /**
      * @SerDe\AvroType("string")
+     *
      * @var string
      */
     private $lastName;
 
     /**
      * @SerDe\AvroType("int")
+     *
      * @var int
      */
     private $age;
@@ -49,19 +53,22 @@ class User implements AvroableContract
     {
         return $this->age;
     }
-	/**
-	 * @return string
-	 */
-	public function getTopicKey(): string {
-        return "foobar";
-	}
-	
-	/**
-	 * @return string
-	 */
-	public function getTopic(): string {
-        return "foobar";
-	}
+
+    /**
+     * @return string
+     */
+    public function getTopicKey(): string
+    {
+        return 'foobar';
+    }
+
+    /**
+     * @return string
+     */
+    public function getTopic(): string
+    {
+        return 'foobar';
+    }
 
     public function generateSchema(): array
     {
@@ -70,6 +77,6 @@ class User implements AvroableContract
 
     public static function getFileName(): string
     {
-        return "User";
+        return 'User';
     }
 }
