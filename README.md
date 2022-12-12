@@ -29,7 +29,7 @@ class User implements Avroable
 Then you can run
 
 ```
-php bin/avro generate --output=./resources/avro
+./vendor/bin/avro generate --output=./resources/avro
 ```
 
 This will generate the Avro schemas for your Avroable classes.
