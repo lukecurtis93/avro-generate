@@ -3,13 +3,13 @@
 namespace LukeCurtis\AvroGenerate\Tests\TestClasses;
 
 use FlixTech\AvroSerializer\Objects\Schema\Generation\Annotations as SerDe;
-use LukeCurtis\AvroGenerate\Contracts\AvroableContract;
+use LukeCurtis\AvroGenerate\Contracts\Avroable;
 
 /**
  * @SerDe\AvroType("record")
  * @SerDe\AvroName("user")
  */
-class User implements AvroableContract
+class User implements Avroable
 {
     /**
      * @SerDe\AvroType("string")

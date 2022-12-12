@@ -1,6 +1,3 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # Avro Generate
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lukecurtis93/avro-generate.svg?style=flat-square)](https://packagist.org/packages/lukecurtis93/avro-generate)
@@ -13,13 +10,13 @@ To use this package, simply implement the `Avroable` interface and define your d
 
 ```php
 use FlixTech\AvroSerializer\Objects\Schema\Generation\Annotations;
-use LukeCurtis\AvroGenerate\Contracts\AvroableContract;
+use LukeCurtis\AvroGenerate\Contracts\Avroable;
 
 /**
  * @Annotations\AvroType("record")
  * @Annotations\AvroName("user")
  */
-class User implements AvroableContract
+class User implements Avroable
 {
         /**
          * @Annotations\AvroType("string")
@@ -32,17 +29,16 @@ class User implements AvroableContract
 Then you can run
 
 ```
-php bin/console avro:generate
-
+php bin/avro generate --output=./resources/avro
 ```
 
-## Support us
+This will generate the Avro schemas for your Avroable classes.
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/avro-generate.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/avro-generate)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+### Coming Soon
+- Specify directories or explicit files for generation.
+- Upload these Avro files to a Schema Registry.
+- Checking for namesapces to be compatible with Confluent Schema Registry and UI.
+- Versioned schemas
 
 ## Installation
 
@@ -54,9 +50,11 @@ composer require lukecurtis93/avro-generate
 
 ## Usage
 
+If you want to use the underlying generator for your own needs you can simply import and use the class.
+
 ```php
-$skeleton = new LukeCurtis\AvroGenerate();
-echo $skeleton->echoPhrase('Hello, LukeCurtis!');
+$generator = new LukeCurtis\DefaultAvroGenerator();
+echo $generator->generate();
 ```
 
 ## Testing
@@ -68,14 +66,6 @@ composer test
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 

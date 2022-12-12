@@ -2,7 +2,7 @@
 
 namespace LukeCurtis\AvroGenerate\Contracts;
 
-interface AvroableContract
+interface Avroable
 {
     public function getTopicKey(): string;
 

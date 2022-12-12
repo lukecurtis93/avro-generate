@@ -3,7 +3,7 @@
 namespace LukeCurtis\AvroGenerate\Commands;
 
 use League\Flysystem\FilesystemAdapter;
-use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use LukeCurtis\AvroGenerate\Generator\DefaultAvroGenerator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -15,7 +15,7 @@ class GenerateAvroFiles extends Command
 {
     protected static $defaultDescription = 'Generate Avro files';
 
-    public function __construct(private FilesystemAdapter $filesystem = new InMemoryFilesystemAdapter('./'))
+    public function __construct(private FilesystemAdapter $filesystem = new LocalFilesystemAdapter('./'))
     {
         parent::__construct();
     }
