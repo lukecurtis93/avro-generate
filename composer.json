@@ -33,8 +33,7 @@
     "autoload": {
         "psr-4": {
             "LukeCurtis\\AvroGenerate\\": "src"
-        },
-        "files": ["bootstrap.php"]
+        }
     },
     "autoload-dev": {
         "psr-4": {
