@@ -3,6 +3,7 @@
 namespace LukeCurtis\AvroGenerate\Tests;
 
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
+use LukeCurtis\AvroGenerate\Exceptions\ClassNotAvroable;
 use LukeCurtis\AvroGenerate\Generator\DefaultAvroGenerator;
 use LukeCurtis\AvroGenerate\Tests\TestClasses\User;
 use PHPUnit\Framework\TestCase;
@@ -18,6 +19,17 @@ class AvroGenerateClassTest extends TestCase
         $generator->generate([User::class]);
 
         $this->assertTrue($generator->getFilesystem()->fileExists($expectedFile->getFileName()));
+    }
+
+    public function test_it_generates_exception(): void
+    {
+        $this->expectException(ClassNotAvroable::class);
+
+        $generator = new DefaultAvroGenerator(filesystem: new InMemoryFilesystemAdapter('./'));
+
+        $generator->generate([new class()
+        {
+        }, ]);
     }
 
     public function test_it_can_get_classes(): void

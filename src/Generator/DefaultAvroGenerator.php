@@ -2,11 +2,11 @@
 
 namespace LukeCurtis\AvroGenerate\Generator;
 
-use ClassNotAvroable;
 use FlixTech\AvroSerializer\Objects\DefaultSchemaGeneratorFactory;
 use League\Flysystem\Config;
 use League\Flysystem\FilesystemAdapter;
 use LukeCurtis\AvroGenerate\Contracts\Avroable;
+use LukeCurtis\AvroGenerate\Exceptions\ClassNotAvroable;
 
 class DefaultAvroGenerator
 {
