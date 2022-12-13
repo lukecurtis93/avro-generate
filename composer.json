@@ -1,6 +1,6 @@
 {
     "name": "lukecurtis93/avro-generate",
-    "description": "This is my package avro-generate",
+    "description": "Easily create Avro files from your PHP classes.",
     "keywords": [
         "lukecurtis93",
         "avro-generate"

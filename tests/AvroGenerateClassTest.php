@@ -15,8 +15,15 @@ class AvroGenerateClassTest extends TestCase
 
         $generator = new DefaultAvroGenerator(filesystem: new InMemoryFilesystemAdapter('./'));
 
-        $generator->generate();
+        $generator->generate([User::class]);
 
         $this->assertTrue($generator->getFilesystem()->fileExists($expectedFile->getFileName()));
+    }
+
+    public function test_it_can_get_classes(): void
+    {
+        $generator = new DefaultAvroGenerator(filesystem: new InMemoryFilesystemAdapter('./'));
+        $arr = $generator->getClasses();
+        $this->assertContains(User::class, $arr);
     }
 }
